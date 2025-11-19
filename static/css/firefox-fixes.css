@@ -1,0 +1,196 @@
+/* Firefox-specific compatibility fixes */
+/* These styles only apply to Firefox browser */
+
+@-moz-document url-prefix() {
+  
+  /* ===================================
+     BUTTON GROUP LAYOUT FIXES
+     =================================== */
+  
+  /* Ensure proper flexbox behavior for button wrapper */
+  .btn-group-wrapper {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  /* Fix button groups to display properly in one row for desktop */
+  .btn-group-row-1,
+  .btn-group-row-2,
+  .btn-group-row-3 {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
+  
+  /* Ensure icons render at correct size */
+  #phase-selection-container img {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+  }
+  
+  /* Fix astronaut button layout */
+  .btn-group-row-1 a {
+    flex-shrink: 0;
+    min-width: 63px;
+  }
+  
+  /* Fix phase button layout */
+  .btn-group-row-2 a {
+    flex-shrink: 0;
+    min-width: 42px;
+  }
+  
+  /* Fix Load More and Stills buttons */
+  .btn-group-row-3 a {
+    flex-shrink: 0;
+  }
+  
+  /* Prevent button text wrapping issues */
+  .btn-group-row-1 span {
+    display: block;
+    white-space: nowrap;
+  }
+  
+  /* Fix border rendering on buttons */
+  #phase-selection-container .btn {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  /* ===================================
+     MOBILE (<=620px) THREE-ROW LAYOUT
+     =================================== */
+  
+  @media (max-width: 620px) {
+    /* Ensure wrapper switches to column layout */
+    .btn-group-wrapper {
+      display: -moz-box !important;
+      display: flex !important;
+      -moz-box-orient: vertical !important;
+      -moz-box-direction: normal !important;
+      flex-direction: column !important;
+    }
+    
+    /* Ensure each row takes full width */
+    .btn-group-row-1,
+    .btn-group-row-2,
+    .btn-group-row-3 {
+      width: 100% !important;
+      display: -moz-box !important;
+      display: flex !important;
+      -moz-box-orient: horizontal !important;
+      -moz-box-direction: normal !important;
+      flex-direction: row !important;
+      -moz-box-pack: center !important;
+      justify-content: center !important;
+    }
+    
+    /* Fix gap between items in each row */
+    .btn-group-row-1 > *,
+    .btn-group-row-2 > *,
+    .btn-group-row-3 > * {
+      margin-left: 2.5px;
+      margin-right: 2.5px;
+    }
+    
+    .btn-group-row-1 > *:first-child,
+    .btn-group-row-2 > *:first-child,
+    .btn-group-row-3 > *:first-child {
+      margin-left: 0;
+    }
+    
+    .btn-group-row-1 > *:last-child,
+    .btn-group-row-2 > *:last-child,
+    .btn-group-row-3 > *:last-child {
+      margin-right: 0;
+    }
+  }
+  
+  /* ===================================
+     DESKTOP (>620px) SINGLE-ROW LAYOUT
+     =================================== */
+  
+  @media (min-width: 621px) {
+    /* Ensure wrapper displays in single row */
+    .btn-group-wrapper {
+      display: -moz-box !important;
+      display: flex !important;
+      -moz-box-orient: horizontal !important;
+      -moz-box-direction: normal !important;
+      flex-direction: row !important;
+      -moz-box-align: center !important;
+      align-items: center !important;
+      flex-wrap: nowrap !important;
+    }
+    
+    /* Ensure button groups stay inline */
+    .btn-group-row-1,
+    .btn-group-row-2,
+    .btn-group-row-3 {
+      display: -moz-box !important;
+      display: flex !important;
+      -moz-box-orient: horizontal !important;
+      -moz-box-direction: normal !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+    }
+    
+    /* Fix gap between button groups */
+    .btn-group-row-1,
+    .btn-group-row-2 {
+      margin-right: 10px;
+    }
+    
+    /* Fix gap between items within groups */
+    .btn-group-row-1 > *,
+    .btn-group-row-2 > *,
+    .btn-group-row-3 > * {
+      margin-left: 3.5px;
+      margin-right: 3.5px;
+    }
+    
+    .btn-group-row-1 > *:first-child,
+    .btn-group-row-2 > *:first-child,
+    .btn-group-row-3 > *:first-child {
+      margin-left: 0;
+    }
+    
+    .btn-group-row-1 > *:last-child,
+    .btn-group-row-2 > *:last-child,
+    .btn-group-row-3 > *:last-child {
+      margin-right: 0;
+    }
+  }
+  
+  /* ===================================
+     IMAGE AND ICON FIXES
+     =================================== */
+  
+  /* Fix image rendering */
+  img {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  /* Ensure video container displays correctly */
+  .video-container {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  /* ===================================
+     STACKED CARDS FIXES
+     =================================== */
+  
+  .stacked-cards {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  .stacked-cards li {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}

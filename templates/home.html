@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+ <div class = "container-fluid header-title-container">
+  <div class = "row">
+   <div class = "col-md-12">
+
+    {% if page.name == "harrison" %}
+     <h1 class = "header-title">The Adventures of Commander Figz!</h1>
+    {% elif page.name == "celeste" %}
+     <h1 class = "header-title">The Celestial Adventures of Celeste Figz!</h1>
+    {% endif %}
+
+   </div>
+  </div>
+ </div>
+
+ <!-- Stacked Cards Section -->
+ <div class = "container-fluid stacked-cards-wrapper mb-3">
+  <div class = "row">
+   <div class = "col-md-12">
+    <ul class = "stacked-cards stacked-cards-slide">
+     {% for media in media_list %}
+      <li class = "slide slide{{ forloop.counter }}">
+       <div class = "video-container">
+
+        {% if page.name == "harrison" %}
+         <video class = "video-slide" controls poster = "{{ MEDIA_URL }}{{ current_phase }}/harrison/{{ media.path }}.jpg">
+          <source src = "{{ MEDIA_URL }}{{ current_phase }}/harrison/{{ media.path }}.mp4" type = "video/mp4">
+         </video>
+        {% elif page.name == "celeste" %}
+         <video class = "video-slide" controls poster = "{{ MEDIA_URL }}{{ current_phase }}/celeste/{{ media.path }}.jpg">
+          <source src = "{{ MEDIA_URL }}{{ current_phase }}/celeste/{{ media.path }}.mp4" type = "video/mp4">
+         </video>
+        {% endif %}
+
+        <!-- Optional overlay -->
+        <!-- <div class="overlay">{{ media.title }}</div> -->
+       </div>
+      </li>
+     {% endfor %}
+    </ul>
+   </div>
+  </div>
+ </div>
+
+
+ <!-- Phase Selection Menu with New Icons and Load More Button -->
+ <div id = "phase-selection-container" class = "container-fluid menu-wrapper  mt-0 mb-4">
+
+  <div class = "btn-group-wrapper">
+  
+   <!-- Row 1: Astronaut Buttons -->
+   <div class = "btn-group btn-group-row-1" role = "group">
+    <a href = "{% url 'harrison' %}" style = "text-align: center; display: flex; flex-direction: column; align-items: center;">
+     <img src = "{% static 'imgs/icons/harrison/harrisonastro.png' %}" alt = "Harrison Astro"
+          style = "max-width: 63px; max-height: 63px; width: auto; height: auto;">
+     <span style = "margin-top: 5px;  color: #89CFF0  !important;">Harrison</span>
+    </a>
+   
+    <a href = "{% url 'celeste' %}" style = "text-align: center; display: flex; flex-direction: column; align-items: center;">
+     <img src = "{% static 'imgs/icons/harrison/celesteastro.png' %}" alt = "Celeste Astro"
+          style = "max-width: 63px; max-height: 63px; width: auto; height: auto;">
+     <span style = "margin-top: 5px;  color: #F4C2C2 !important;">Celeste</span>
+    </a>
+   </div>
+  
+   <!-- Row 2: Phases Buttons -->
+   <div class = "btn-group btn-group-row-2" role = "group">
+    {% if page_name == 'harrison' %}
+     {% for phase, label in phases %}
+      <a href = "?phase={{ phase }}" class = "btn btn-primary menu-btn phase-{{ phase }} {% if current_phase == phase %}active{% endif %}"
+         style = "display: flex; align-items: center; justify-content: center; line-height: 1.0; text-align: center; background-color: transparent !important;">
+       <img src = "{% static 'imgs/icons/harrison/' %}{{ phase }}.png" alt = "Phase {{ phase }} icon" style = "width: 36px; height: 36px;">
+      </a>
+     {% endfor %}
+     
+    {% elif page_name == 'celeste' %}
+     {% for phase, label in phases %}
+      <a href = "?phase={{ phase }}" class = "btn btn-primary menu-btn phase-{{ phase }} {% if current_phase == phase %}active{% endif %}"
+         style = "display: flex; align-items: center; justify-content: center; line-height: 1.0; text-align: center; background-color: transparent !important;">
+       <img src = "{% static 'imgs/icons/celeste/' %}{{ phase }}.png" alt = "Phase {{ phase }} icon" style = "width: 36px; height: 36px;">
+      </a>
+     {% endfor %}
+    {% endif %}
+   </div>
+
+   <!-- Row 3: Load More and Stills Buttons -->
+   <div class = "btn-group btn-group-row-3" role = "group">
+    <!-- Load More Button -->
+    {% if page.name == "harrison" %}
+     <a href = "?phase={{ current_phase|add:'0' }}" class = "btn btn-secondary menu-btn stills-button"
+        style = "display: flex; align-items: center; justify-content: center; line-height: 1.0; text-align: center; background-color: transparent !important; border : 3px solid #89CFF0;">
+      Load
+      <br>
+      More
+     </a>
+     
+    {% elif page_name == 'celeste' %}
+     <a href = "?phase={{ current_phase|add:'0' }}" class = "btn btn-secondary menu-btn stills-button"
+        style = "display: flex; align-items: center; justify-content: center; line-height: 1.0; text-align: center; background-color: transparent !important; border : 3px solid #F4C2C2;">
+      Load
+      <br>
+      More
+     </a>
+    {% endif %}
+
+    <!-- Stills page -->
+    <a href = "{% url 'stills' %}" class = "btn btn-secondary menu-btn stills-button"
+       style = "display: flex; align-items: center; justify-content: center; line-height: 1.0; text-align: center; background-color: transparent !important; border : 3px solid white; color: white !important;">
+     Stills
+     <br>
+     Page
+    </a>
+   </div>
+
+  </div>
+ </div>
+
+ <!-- Rotation Prompt Footer -->
+ <div class = "container-fluid">
+  <div class = "row">
+   <div class = "col-12">
+    <p id = "mobile-rotation-prompt" class = "rotation-prompt rotation-hidden">
+     Please rotate your device for the best experience.
+    </p>
+   </div>
+  </div>
+ </div>
+
+ <script src = "{% static 'js/rotation.js' %}"></script>
+
+{% endblock %}

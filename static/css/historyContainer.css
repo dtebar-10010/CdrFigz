@@ -1,0 +1,25 @@
+/* Default styles (for larger screens) */
+.text-container {
+  width: 720px;
+  max-height: 72px; /* Set max-height here for all screen sizes */
+  border: 7px solid transparent;
+  padding: 9px;
+  overflow-y: auto;
+  margin: 0 auto;
+  background-color: #818589;
+  color: black;
+  margin-bottom: 7px;
+  border-radius: 11px;
+  position: relative;
+  z-index: 100;
+}
+
+/* General Scrollbar Styling (WebKit browsers - Chrome, Safari, etc.) */
+.text-container::-webkit-scrollbar {
+  width: 7px;  /* Adjust this value for desired width in WebKit browsers */
+}
+
+/* Firefox Scrollbar Styling (Limited) */
+.text-container {
+  scrollbar-width: thin;        /* This will make the scrollbar slightly thinner in Firefox */
+}

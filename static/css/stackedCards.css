@@ -1,0 +1,139 @@
+.stacked-cards {
+  position       : absolute;
+  top            : 45%;
+  left           : 50%;
+  transform      : translate(-50%, -50%);
+  padding-top    : 0;
+  padding-bottom : 0;
+  margin-top     : 0;
+  margin-bottom  : 0;
+  height         : 70vh;
+  min-height     : 70vh;
+  min-width      : 90vw;
+  box-sizing     : border-box;
+  z-index        : 1;
+}
+
+.stacked-cards-wrapper {
+  order         : 2;
+  width         : 100%;
+  margin-bottom : 20px;
+}
+.stacked-cards li, .stacked-cards ul, .card-body {
+  box-sizing : border-box;
+}
+
+.stacked-cards h2 {
+  text-align    : center;
+  margin-bottom : 0;
+}
+
+.stacked-cards.stacked-cards-slide > .row > .col-md-12 > ul {
+  padding       : 0;
+  margin        : 0;
+  margin-left   : -1.1%;
+  margin-bottom : 36px;
+}
+
+.stacked-cards.stacked-cards-slide {
+  height : 111px !important;
+}
+
+.stacked-cards ul {
+  display        : flex;
+  flex-direction : column;
+  align-items    : center;
+  width          : 100%;
+  height         : auto;
+}
+
+.stacked-cards li {
+  display          : flex;
+  align-items      : center;
+  justify-content  : center;
+  margin-top       : 0.5rem;
+  cursor           : pointer;
+  border-radius    : 11px; /* Set consistent border radius */
+  list-style       : none;
+  width            : 50% !important;
+  max-width        : 600px;
+  transition       : transform 0.5s ease, z-index 0.5s ease;
+  padding          : 0;
+  z-index          : 1;
+  position         : absolute;
+  left             : 50%;
+  transform        : translateX(-50%);
+  background-color : black;
+  aspect-ratio     : 16 / 9;
+  /*border           : 3px solid gray; !* Add the 3px gray border *!*/
+}
+
+.video-container {
+  position         : relative;
+  display          : flex;
+  align-items      : center;
+  justify-content  : center;
+  width            : 100%;
+  height           : 100%;
+  background-color : black;
+  overflow         : hidden;
+  border-radius    : 11px; /* Set consistent border radius */
+  padding          : 0;
+  margin           : 0;
+}
+
+.video-container video {
+  display         : block;
+  width           : 100%;
+  height          : 100%;
+  object-fit      : contain !important;
+  object-position : center !important;
+  border-radius   : inherit; /* Inherit border radius from container */
+  z-index         : 5;
+  position        : relative;
+  margin          : 0;
+}
+
+.stacked-cards li.active {
+  cursor    : default;
+  z-index   : 10;
+  transform : scale(1.18); /* Adjust scaling to reduce zoom effect */
+}
+
+.stacked-cards li.active:after {
+  display : none;
+}
+
+.card-body {
+  padding       : 1rem; /* Standardized padding */
+  border-radius : 11px; /* Apply consistent border radius to card body */
+}
+
+.stacked-cards-slide {
+  margin-top    : 2.11rem;
+  margin-bottom : 0;
+}
+
+.video-container video[poster] {
+  display         : block;
+  width           : 104%; /* Slightly larger to cover container */
+  height          : 104%;
+  object-fit      : cover;
+  object-position : center;
+  border-radius   : inherit;
+  margin          : 0;
+  padding         : 0;
+}
+
+.overlay {
+  position         : absolute;
+  top              : 9px;
+  left             : 9px;
+  color            : gray;
+  background-color : rgba(0, 0, 0, 0.5);
+  padding          : 5px;
+  border-radius    : 7px; /* Set consistent border radius for overlay */
+  z-index          : 10;
+  pointer-events   : none;
+  font-size        : 9px !important;
+}

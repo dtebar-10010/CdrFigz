@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtualenv
+grand_venv/
+venv/
+.env
+
+# Django
+*.log
+*.pot
+*.pyc
+
+# Staticfiles collected
+staticfiles/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

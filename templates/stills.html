@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+ <div class = "scrollable-container">
+  <div class = "row">
+   {% for i in images %}
+    {% if forloop.counter0|divisibleby:4 %}
+     <!-- Start a new column every four images -->
+     <div class = "column">
+    {% endif %}
+   <div class = "image-container">
+    <!-- Overlay the title in the top-left corner -->
+    {#          <div class="image-title">{{ i.title }}</div>#}
+    <img src = "{{ MEDIA_URL }}stills/{{ i.path }}.jpg" style = "width:100%" alt = "{{ i.title }}">
+   </div>
+   {% if forloop.counter|divisibleby:4 %}
+    <!-- Close the column div after four images -->
+    </div>
+   {% endif %}
+   {% endfor %}
+   {% if not forloop.last %}
+    <!-- Ensure the last div is closed if not exactly divisible by 4 -->
+    </div>
+   {% endif %}
+ </div>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+

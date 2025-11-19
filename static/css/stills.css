@@ -1,0 +1,98 @@
+.row {
+  display       : -ms-flexbox; /* IE10 */
+  display       : flex;
+  -ms-flex-wrap : wrap; /* IE10 */
+  flex-wrap     : wrap;
+  padding       : 0 4px;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width : 800px) {
+  .column {
+    -ms-flex  : 50%;
+    flex      : 50%;
+    max-width : 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width : 600px) {
+  .column {
+    -ms-flex  : 100%;
+    flex      : 100%;
+    max-width : 100%;
+  }
+}
+
+.scrollable-container {
+  max-height : 600px; /* Adjust the height as needed */
+  overflow-y : auto; /* Enable vertical scrolling */
+  padding    : 9px; /* Optional padding */
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  -ms-flex  : 25%; /* IE10 */
+  flex      : 25%;
+  max-width : 25%;
+  padding   : 0 7px;
+}
+
+.column img {
+  margin-top     : 9px;
+  vertical-align : center;
+  width          : 100%;
+  display        : block;
+  height         : auto;
+  border-radius  : 9px;
+}
+
+.image-container {
+  position : relative;
+  display  : inline-block;
+  width    : 100%;
+}
+
+.image-title {
+  position         : absolute;
+  top              : 9px;
+  left             : 9px;
+  background-color : rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color            : white;
+  padding          : 7px;
+  font-size        : 12px;
+  border-radius    : 9px;
+  z-index          : 1; /* Ensure the title appears on top of the image */
+}
+
+/* Thin scrollbar for Webkit browsers (Chrome, Safari, Edge) */
+.scrollable-container::-webkit-scrollbar {
+  width: 9px;
+}
+
+/* Track for Webkit browsers */
+.scrollable-container::-webkit-scrollbar-track {
+  background: plum;
+}
+
+/* Handle for Webkit browsers */
+.scrollable-container::-webkit-scrollbar-thumb {
+  background: darkred;
+  border-radius: 9px;
+}
+
+/* Handle hover for Webkit browsers */
+.scrollable-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Thin scrollbar for Firefox */
+.scrollable-container {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+/* Handle hover for Firefox */
+.scrollable-container:hover {
+  scrollbar-color: #555 #f1f1f1;
+}

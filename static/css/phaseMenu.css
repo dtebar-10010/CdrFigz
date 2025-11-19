@@ -1,0 +1,76 @@
+.btn-group-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.menu-btn {
+  width: 72px !important;
+  height: 72px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+#phase-selection-container .btn-group .btn {
+  border        : 3px solid transparent;
+  border-radius : 11px;
+  padding       : 2px 0.75em;
+  width         : 72px;
+  margin        : 0;
+  transition    : border-color 0.2s;
+}
+
+#phase-selection-container .btn-group .btn.active {
+  border-color: #89CFF0; /* Harrison color, override in template if needed */
+}
+/* Title section */
+.header-title-container {
+  order         : 1;
+  width         : 100%;
+  margin-bottom : 20px;
+  text-align    : center;
+}
+
+
+
+/* Phase selection menu */
+.menu-wrapper {
+  order           : 3;
+  display         : flex;
+  justify-content : center;
+  align-items     : center;
+  position        : relative;
+  margin          : 20px auto 0px;
+  z-index         : 10;
+  width           : 100%;
+}
+
+#phase-selection-container .btn-group {
+  top             : 69vh;
+  display         : flex;
+  flex-direction  : row;
+  justify-content : center;
+  gap             : 7px; /* Add space between the buttons */
+}
+
+#phase-selection-container .btn {
+  /*color            : gray;*/
+  border-radius : 0;
+  padding       : 0.5em 1em;
+  font-size     : 14px;
+  white-space   : nowrap;
+  /*background-color : inherit; !* Inherit color to use specific phase colors *!*/
+}
+
